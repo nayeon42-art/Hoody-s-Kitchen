@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf6ef">
+  <title>Hoody’s Kitchen | أكل بيتي بحب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">H</span><span>Hoody’s Kitchen<small>HOME COOKED WITH LOVE</small></span></a>
+  <nav><a href="#menu">القائمة</a><a href="#story">حكايتنا</a><a href="#contact">تواصل معنا</a></nav>
+  <button class="cart-button" id="open-cart">السلة <span id="cart-count">0</span></button>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">طازج • بيتي • معمول بحب</span>
+      <h1>طعم البيت،<br><em>وين ما كنت.</em></h1>
+      <p>أطباق منزلية محضّرة بعناية، من مطبخنا إلى مائدتك. اختاري اللي تشتهينه وخلي الباقي علينا.</p>
+      <a class="primary-link" href="#menu">اكتشفي القائمة <span>←</span></a>
+      <div class="hero-note"><span>✳</span> نطبخ على الطلب لنضمن لك الطعم الطازج</div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-image"><div class="image-label">MADE FRESH<br>EVERY DAY</div></div>
+      <div class="round-stamp">من مطبخنا<br>بكل حب</div>
+    </div>
+  </section>
+  <section class="category-strip" id="menu">
+    <div><span class="eyebrow">اختاري مزاجك</span><h2>من قائمتنا</h2></div>
+    <div class="category-buttons">
+      <button class="category active" data-category="all">الكل</button>
+      <button class="category" data-category="desserts">الحلويات</button>
+      <button class="category" data-category="pastries">المعجنات</button>
+      <button class="category" data-category="traditional">الطبخات البلدية</button>
+      <button class="category" data-category="seafood">الطبخات البحرية</button>
+    </div>
+  </section>
+  <section class="menu-section">
+    <div class="section-heading"><div><span class="eyebrow">محضّرة اليوم</span><h2 id="menu-title">أطباقنا المميزة</h2></div><span class="muted" id="menu-count"></span></div>
+    <div id="products" class="product-grid"><div class="empty-state">جاري تحميل الأطباق...</div></div>
+  </section>
+  <section class="story" id="story"><div class="story-mark">H.</div><div><span class="eyebrow">من مطبخنا إلى بيتكم</span><h2>الأكل البيتي<br>له حكاية ثانية.</h2><p>نهتم بالتفاصيل الصغيرة: المكونات، التحضير، والتغليف. كل طبق نجهزه كأنه لضيوف بيتنا.</p></div></section>
+</main>
+<footer id="contact"><div class="brand"><span class="brand-mark">H</span><span>Hoody’s Kitchen<small>HOME COOKED WITH LOVE</small></span></div><p>للطلب والاستفسار، استخدمي سلة المشتريات أو تواصلي معنا مباشرة.</p><span>© Hoody’s Kitchen</span></footer>
+
+<div class="overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="سلة المشتريات">
+  <div class="drawer-head"><div><span class="eyebrow">طلبك القادم</span><h2>سلة المشتريات</h2></div><button class="icon-button" id="close-cart" aria-label="إغلاق">×</button></div>
+  <div id="cart-items" class="cart-items"><p class="muted">سلتك فارغة حاليًا.</p></div>
+  <div class="cart-bottom"><div class="total-line"><span>الإجمالي</span><strong id="cart-total">0.00 ر.س</strong></div>
+    <form id="checkout-form" class="checkout-form">
+      <input name="customer_name" placeholder="الاسم الكامل" required minlength="2">
+      <input name="customer_phone" placeholder="رقم الجوال" required minlength="6">
+      <textarea name="delivery_address" placeholder="عنوان التوصيل بالتفصيل" required minlength="4"></textarea>
+      <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+      <button class="primary-button" type="submit" id="submit-order">إرسال الطلب</button>
+      <small id="checkout-message" class="form-message"></small>
+    </form>
+  </div>
+</aside>
+</body></html>
