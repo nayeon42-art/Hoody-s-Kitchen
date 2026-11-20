@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff1f6">
+<title>Hoody’s Kitchen | أكل بيتي بحب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Playfair+Display:ital,wght@1,600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="logo-mark.png">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar-wrap"><div class="topbar">
+  <a class="brand" href="#"><img class="brand-mark" src="logo-mark.png" alt="" width="64" height="54"><span>Hoody’s Kitchen<small>home cooked with love</small></span></a>
+  <nav><a href="#menu">القائمة</a><a href="#story">حكايتنا</a><a href="#contact">تواصل معنا</a></nav>
+  <div class="actions">
+    <button class="icon-btn" id="fav-toggle" aria-label="المفضلة" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="dot" id="fav-count" hidden>0</span></button>
+    <button class="cart-button" id="open-cart"><svg class="ic" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg>السلة <span id="cart-count">0</span></button>
+  </div>
+</div></header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="tag">طازج • بيتي • معمول بحب</span>
+      <h1>طعم البيت،<br>وين ما كنتي.</h1>
+      <p>أطباق منزلية محضّرة بعناية، من مطبخنا إلى مائدتك. اختاري اللي تشتهينه وخلي الباقي علينا.</p>
+      <div class="hero-btns"><a class="primary-link" href="#menu">اكتشفي القائمة</a><a class="ghost-link" href="#story">حكايتنا</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="arch"><svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs><g id="fl"><g fill="#fff"><ellipse cx="0" cy="-13" rx="7" ry="11"/><ellipse cx="0" cy="-13" rx="7" ry="11" transform="rotate(72)"/><ellipse cx="0" cy="-13" rx="7" ry="11" transform="rotate(144)"/><ellipse cx="0" cy="-13" rx="7" ry="11" transform="rotate(216)"/><ellipse cx="0" cy="-13" rx="7" ry="11" transform="rotate(288)"/></g><circle r="5" fill="#f9c74f"/></g></defs>
+        <circle cx="200" cy="330" r="165" fill="#fff" opacity=".22"/>
+        <use href="#fl" x="70" y="130"/><use href="#fl" x="335" y="215" transform="translate(335 215) scale(.7) translate(-335 -215)"/><use href="#fl" x="320" y="95" transform="translate(320 95) scale(.5) translate(-320 -95)"/>
+        <ellipse cx="200" cy="470" rx="64" ry="10" fill="#fff"/><rect x="192" y="410" width="16" height="60" fill="#fff"/>
+        <ellipse cx="200" cy="408" rx="160" ry="24" fill="#f6b8cd"/><ellipse cx="200" cy="400" rx="160" ry="24" fill="#fff8fa"/>
+        <rect x="92" y="306" width="216" height="92" rx="20" fill="#fbc3d5"/><rect x="92" y="344" width="216" height="12" fill="#fff"/>
+        <ellipse cx="200" cy="306" rx="108" ry="22" fill="#fff0f5"/>
+        <rect x="128" y="236" width="144" height="72" rx="18" fill="#f59ebd"/><rect x="128" y="268" width="144" height="10" fill="#fff"/>
+        <ellipse cx="200" cy="236" rx="72" ry="15" fill="#fff0f5"/>
+        <g fill="#e03a6b"><ellipse cx="168" cy="222" rx="15" ry="17"/><ellipse cx="200" cy="214" rx="16" ry="18"/><ellipse cx="233" cy="222" rx="15" ry="17"/></g>
+        <g fill="#5fa777"><ellipse cx="168" cy="208" rx="9" ry="4"/><ellipse cx="200" cy="199" rx="10" ry="4"/><ellipse cx="233" cy="208" rx="9" ry="4"/></g>
+        <g fill="#fff"><circle cx="118" cy="372" r="5"/><circle cx="148" cy="376" r="5"/><circle cx="178" cy="378" r="5"/><circle cx="222" cy="378" r="5"/><circle cx="252" cy="376" r="5"/><circle cx="282" cy="372" r="5"/></g>
+      </svg></div>
+      <div class="float fc-1"><i>🍰</i><div><b>طازج على الطلب</b><span>نطبخ بعد ما تطلبين</span></div></div>
+      <div class="float fc-2"><i>🎀</i><div><b>تغليف أنيق</b><span>جاهز للإهداء</span></div></div>
+    </div>
+  </section>
+  <section class="cats" aria-label="الأقسام">
+    <button class="category tile" data-category="desserts"><i>🍰</i><b>الحلويات</b></button>
+    <button class="category tile" data-category="pastries"><i>🥐</i><b>المعجنات</b></button>
+    <button class="category tile" data-category="traditional"><i>🍲</i><b>الطبخات البلدية</b></button>
+    <button class="category tile" data-category="seafood"><i>🦐</i><b>الطبخات البحرية</b></button>
+  </section>
+  <section class="banner-wrap"><div class="banner" id="banner"></div></section>
+  <section class="menu-section" id="menu">
+    <div class="section-heading"><h2 id="menu-title">أطباقنا المميزة</h2><span class="muted" id="menu-count"></span></div>
+    <div class="toolbar">
+      <label class="search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="دوري على طبقك المفضل" aria-label="بحث"></label>
+      <button class="category chip active" data-category="all">الكل</button>
+    </div>
+    <div id="products" class="product-grid"><div class="empty-state">جاري تحميل الأطباق...</div></div>
+  </section>
+  <section class="story" id="story"><img class="story-mark" src="logo-mark.png" alt=""><div><h2>الأكل البيتي<br>له حكاية ثانية.</h2><p>نهتم بالتفاصيل الصغيرة: المكونات، التحضير، والتغليف. كل طبق نجهزه كأنه لضيوف بيتنا.</p><div class="chips"><span>مكونات مختارة</span><span>تحضير على الطلب</span><span>تغليف أنيق</span></div></div></section>
+</main>
+<footer id="contact"><img class="foot-logo" src="logo.png" alt="Hoody’s Kitchen" width="110" height="130"><p>للطلب والاستفسار، استخدمي سلة المشتريات أو تواصلي معنا مباشرة.</p><span>© Hoody’s Kitchen</span></footer>
+
+<div class="overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="سلة المشتريات">
+  <div class="drawer-head"><h2>سلة المشتريات</h2><button class="icon-button" id="close-cart" aria-label="إغلاق">×</button></div>
+  <div id="cart-items" class="cart-items"><p class="muted">سلتك فارغة حاليًا.</p></div>
+  <div class="cart-bottom"><div class="total-line"><span>الإجمالي</span><strong id="cart-total">0.00 ر.س</strong></div>
+    <form id="checkout-form" class="checkout-form">
+      <input name="customer_name" placeholder="الاسم الكامل" required minlength="2">
+      <input name="customer_phone" placeholder="رقم الجوال" required minlength="6">
+      <textarea name="delivery_address" placeholder="عنوان التوصيل بالتفصيل" required minlength="4"></textarea>
+      <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+      <button class="primary-button" type="submit" id="submit-order">إرسال الطلب</button>
+      <small id="checkout-message" class="form-message"></small>
+    </form>
+  </div>
+</aside>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
